@@ -1,35 +1,29 @@
-package br.com.zgsolucoes
+package br.com.zgsolucoes.reconhecedor
 
+import br.com.zgsolucoes.modelo.Categoria
+import br.com.zgsolucoes.modelo.PokerHand
+import br.com.zgsolucoes.modelo.Resultado
 import spock.lang.Specification
 import spock.lang.Unroll
 
 class PokerHandTest extends Specification {
 	
-	def "getMaoComoString()"() {
-		given: " recebe sequencia "
-			PokerHand pokerHand = new PokerHand("5C TC 2C 3C 7C")
-		when: " ordena a sequencia "
-			String maoComoString = pokerHand.getMaoComoString()
-		then: " confere resultado "
-			maoComoString == "2C 3C 5C 7C TC"
-	}
-	
 	@Unroll
 	def "obtemTipoCategoria()"() {
-		given: " recebe a mao de poker "
+		given: " recebe a cartas de poker "
 			PokerHand mao1
 		when: " verifica sua categoria "
 			mao1 = new PokerHand(pMao1)
 		then: " confere resultado "
-			mao1.tipoCategoria == resultadoEsperado
+			mao1.categoria == resultadoEsperado
 		where:
 			pMao1            || resultadoEsperado
 			"TC JC QC KC AC" || Categoria.ROYAL_FLUSH
 			"6C 7C 8C 9C TC" || Categoria.STRAIGHT_FLUSH
-			"2C 3C 6C 7C TC" || Categoria.FLUSH
-			"2S 3H 4D 5C 6S" || Categoria.SEQUENCIA
 			"AC AH AD AS TC" || Categoria.QUADRA
 			"AC AH AD TS TC" || Categoria.FULL_HOUSE
+			"2C 3C 6C 7C TC" || Categoria.FLUSH
+			"2S 3H 4D 5C 6S" || Categoria.SEQUENCIA
 			"AC AH AD 9S TC" || Categoria.TRINCA
 			"AC AH 9D TS TC" || Categoria.DOIS_PARES
 			"AC 7H 9D TS TC" || Categoria.UM_PAR
@@ -41,14 +35,14 @@ class PokerHandTest extends Specification {
 		given: " recebe as maos de poker "
 			PokerHand mao1
 			PokerHand mao2
-		when: " verifica se a mao é uma sequencia "
+		when: " verifica se a cartas é uma sequencia "
 			mao1 = new PokerHand(pMao1)
 			mao2 = new PokerHand(pMao2)
 		then: " confere resultado "
 			mao1.compareWith(mao2) == resultadoEsperado
 		where:
 			pMao1            | pMao2            || resultadoEsperado
-//			"9C TC JC QC KC" | "9C 9H 5C 5H AC" || Resultado.WIN
+			"9C TC JC QC KC" | "9C 9H 5C 5H AC" || Resultado.WIN
 			"TC TH 5C 5H KH" | "9C 9H 5C 5H AC" || Resultado.WIN
 			"TS TD KC JC 7C" | "JS JC AS KC TD" || Resultado.LOSS
 			"7H 7C QC JS TS" | "7D 7C JS TS 6D" || Resultado.WIN

@@ -1,5 +1,8 @@
 package br.com.zgsolucoes
 
+import br.com.zgsolucoes.modelo.Carta
+import br.com.zgsolucoes.modelo.Naipe
+import br.com.zgsolucoes.modelo.ValorDaCarta
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -12,13 +15,14 @@ class CartaTest extends Specification {
 		when: " inicializa "
 		carta = new Carta(pCarta)
 		then: " confere o resultado "
-		carta.valor == resultadoEsperado
+		carta.valor == valorEsperado
+		carta.naipe == naipeEsperado
 		where:
-		pCarta | resultadoEsperado
-		"2C"   | ValorDaCarta.DOIS
-		"8C"   | ValorDaCarta.OITO
-		"TC"   | ValorDaCarta.DEZ
-		"AC"   | ValorDaCarta.CATORZE
+		pCarta | valorEsperado        |   naipeEsperado
+		"2C"   | ValorDaCarta.DOIS    |   Naipe.CLUB
+		"8S"   | ValorDaCarta.OITO    |   Naipe.SPADE
+		"TH"   | ValorDaCarta.DEZ     |   Naipe.HEART
+		"AD"   | ValorDaCarta.CATORZE |   Naipe.DIAMOND
 	}
 	
 	@Unroll
