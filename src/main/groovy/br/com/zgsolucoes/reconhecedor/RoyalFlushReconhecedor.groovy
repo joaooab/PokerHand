@@ -6,6 +6,6 @@ class RoyalFlushReconhecedor extends Reconhecedor {
 	
 	@Override
 	Categoria obtemCategoria(List<Carta> cartas) {
-		return isFlush(cartas) && isSequencia(cartas) && cartas.first().valor == ValorDaCarta.DEZ ? Categoria.ROYAL_FLUSH : null
+		return isFlush(cartas) && isSequencia(cartas) && cartas.first().valor == ValorDaCarta.T ? Categoria.ROYAL_FLUSH : null
 	}
 }

@@ -18,11 +18,11 @@ class CartaTest extends Specification {
 		carta.valor == valorEsperado
 		carta.naipe == naipeEsperado
 		where:
-		pCarta | valorEsperado        |   naipeEsperado
-		"2C"   | ValorDaCarta.DOIS    |   Naipe.CLUB
-		"8S"   | ValorDaCarta.OITO    |   Naipe.SPADE
-		"TH"   | ValorDaCarta.DEZ     |   Naipe.HEART
-		"AD"   | ValorDaCarta.CATORZE |   Naipe.DIAMOND
+		pCarta | valorEsperado     |   naipeEsperado
+		"2C"   | ValorDaCarta.DOIS |   Naipe.CLUB
+		"8S"   | ValorDaCarta.OITO |   Naipe.SPADE
+		"TH"   | ValorDaCarta.T    |   Naipe.HEART
+		"AD"   | ValorDaCarta.A    |   Naipe.DIAMOND
 	}
 	
 	@Unroll

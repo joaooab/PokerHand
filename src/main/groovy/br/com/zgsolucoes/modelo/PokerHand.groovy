@@ -16,7 +16,8 @@ class PokerHand {
 			new SequenciaReconhecedor(),
 			new TrincaReconhecedor(),
 			new DoisParesReconhecedor(),
-			new UmParReconhecedor()
+			new UmParReconhecedor(),
+			new CartaAltaReconhecedor()
 	)
 	
 	
@@ -35,9 +36,6 @@ class PokerHand {
 				this.categoria = categoria
 				break
 			}
-		}
-		if (categoria == null) {
-			this.categoria = Categoria.CARTA_ALTA
 		}
 	}
 	

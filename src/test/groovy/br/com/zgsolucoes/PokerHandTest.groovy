@@ -32,10 +32,10 @@ class PokerHandTest extends Specification {
 	
 	@Unroll
 	def "compareWith() "(){
-		given: " recebe as maos de poker "
+		given: " as duas maos de poker "
 			PokerHand mao1
 			PokerHand mao2
-		when: " verifica se a cartas é uma sequencia "
+		when: " instanciado as maos de poker "
 			mao1 = new PokerHand(pMao1)
 			mao2 = new PokerHand(pMao2)
 		then: " confere resultado "

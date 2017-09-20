@@ -9,9 +9,9 @@ enum ValorDaCarta {
 	SETE,
 	OITO,
 	NOVE,
-	DEZ,
-	ONZE,
-	DOZE,
-	TREZE,
-	CATORZE
+	T,
+	J,
+	Q,
+	K,
+	A
 }
