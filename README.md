@@ -1,4 +1,4 @@
 # PokerHand
-Play PokerHand 
+Compare poker hands
 
-Algoritmo classificador de jogos de Poker 
+Application to compare poker hands with Spock Framework
